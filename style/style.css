@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 html {
     box-sizing: border-box;
@@ -11,6 +11,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: #f2f3f7;
     background-color: #16171d;
     display: grid;
     grid-template-rows: auto auto;
@@ -21,8 +22,26 @@ body {
 
 header {
     grid-area: header;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.maim-content {
+.logo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+.main-content {
     grid-area: main;
 }
