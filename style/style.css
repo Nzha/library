@@ -20,11 +20,16 @@ body {
     "main";
 }
 
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+
 header {
     grid-area: header;
     margin: 1rem 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -44,4 +49,36 @@ h2 {
 
 .main-content {
     grid-area: main;
+}
+
+#add-book {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    appearance: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .4rem 0.5rem;
+    background-color: #24252b;
+    color: inherit;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #0074e0;
+}
+
+button {
+    background-color: #24252b;
+    color: inherit;
+    border: none;
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 900px) {
+    .container {
+        /* margin: 0 20rem; */
+    }
 }
