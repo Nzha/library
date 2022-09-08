@@ -52,11 +52,26 @@ h2 {
 }
 
 #add-book {
-    display: flex;
+    display: grid;
+    grid-template-columns: 4fr 2fr auto auto;
     gap: 1rem;
 }
 
-input {
+.form-field {
+    display: grid;
+}
+
+.form-field:last-of-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #757575;
+    background-color: #24252b;
+    border-radius: 5px;
+    padding: .4rem 0.5rem;
+}
+
+input[type=text] {
     appearance: none;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -65,7 +80,7 @@ input {
     color: inherit;
 }
 
-input:focus {
+input[type=text]:focus {
     outline: none;
     border: 1px solid #0074e0;
 }
@@ -75,6 +90,7 @@ button {
     color: inherit;
     border: none;
     border-radius: 5px;
+    padding: 0 2.0rem;
 }
 
 @media only screen and (min-width: 900px) {
