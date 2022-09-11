@@ -126,11 +126,11 @@ input[type=text]:focus {
 }
   
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #0074e0;
 }
   
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #0074e0;
 }
   
 input:checked + .slider:before {
@@ -139,7 +139,7 @@ input:checked + .slider:before {
     transform: translateX(17px);
 }
   
-  /* Rounded sliders */
+/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
@@ -154,6 +154,11 @@ button {
     border: none;
     border-radius: 5px;
     padding: 0 2.0rem;
+}
+
+button:hover {
+    background-color: #0074e0;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 900px) {
