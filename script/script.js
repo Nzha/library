@@ -5,13 +5,7 @@ statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus
 deleteBtns.forEach(deleteBtn => deleteBtn.addEventListener('click', removeBook));
 
 function changeStatus(e) {
-    if (e.currentTarget.classList.contains('not-read')) {
-        e.currentTarget.classList.remove('not-read');
-        e.currentTarget.classList.add('read');
-    } else {
-        e.currentTarget.classList.remove('read');
-        e.currentTarget.classList.add('not-read');
-    }
+    e.currentTarget.classList.toggle('read');
 }
 
 function removeBook(e) {
