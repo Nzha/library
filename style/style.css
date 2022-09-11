@@ -195,6 +195,16 @@ form > button:hover {
     padding: 0.25rem 2rem;
 }
 
+button.status {
+    color: #f2f3f7;
+    background: #0074e0;
+}
+
+button.delete {
+    color: #f2f3f7;
+    background: #16171d;
+}
+
 @media only screen and (min-width: 900px) {
     .container {
         /* margin: 0 20rem; */
