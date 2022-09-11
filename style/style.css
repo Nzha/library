@@ -85,6 +85,7 @@ input[type=text]:focus {
     border: 1px solid #0074e0;
 }
 
+/* SLIDER STARTS */
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -147,18 +148,51 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+/* SLIDER ENDS */
 
 button {
-    background-color: #24252b;
-    color: inherit;
     border: none;
     border-radius: 5px;
-    padding: 0 2.0rem;
 }
 
 button:hover {
-    background-color: #0074e0;
     cursor: pointer;
+}
+
+form > button {
+    color: inherit;
+    background-color: #24252b;
+    padding: 0 2.0rem;
+}
+
+form > button:hover {
+    background-color: #0074e0;
+}
+
+.book-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.book {
+    background-color: #24252b;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.book > button {
+    width: 7rem;
+    padding: 0.25rem 2rem;
 }
 
 @media only screen and (min-width: 900px) {
