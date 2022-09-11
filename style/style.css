@@ -204,13 +204,13 @@ button.status.read {
     background: #0074e0;
 }
 
+.book > button:hover{
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+
 button.delete {
     color: #f2f3f7;
     background: #16171d;
-}
-
-button.delete:hover {
-    background: #e00101;
 }
 
 @media only screen and (min-width: 900px) {
