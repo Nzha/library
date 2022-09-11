@@ -25,21 +25,21 @@
         </header>
         <div class="main-content">
             <div class="add-book">
-                <form action="POST" id="add-book">
+                <form action="#" id="add-book">
                     <div class="form-field">
-                        <input type="text" name="book" id="book" placeholder="Book">
+                        <input type="text" name="title" id="title" placeholder="Book">
                     </div>
                     <div class="form-field">
                         <input type="text" name="author" id="author" placeholder="Author">
                     </div>
                     <div class="form-field">
-                        <label for="book">Read</label>
+                        <label for="status">Read</label>
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" id="status" value="status">
                             <span class="slider round"></span>
                         </label>
                     </div>
-                    <button>Add</button>
+                    <button id="add-book-btn">Add</button>
                 </form>
             </div>
             <div class="book-container">
