@@ -1,6 +1,7 @@
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const status = document.querySelector('#status');
+const addBookForm = document.querySelector('#add-book');
 const addBookBtn = document.querySelector('#add-book-btn');
 const bookContainer = document.querySelector('.book-container');
 const bookDiv = document.querySelector('.book');
@@ -71,7 +72,8 @@ function addBook(e) {
     }
 
 
-
+    addBookForm.reset();
+    
     console.log(myLibrary);
 }
 
