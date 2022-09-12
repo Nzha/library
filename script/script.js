@@ -27,53 +27,29 @@ function addBook(e) {
 
     myLibrary.push(book);
 
+    // Create a 'book' div
     const newBook = document.createElement('div');
     newBook.classList.add('book');
     bookContainer.appendChild(newBook);
 
-    // const newTitle = document.createElement('div');
-    // newTitle.classList.add('title');
-    // newTitle.textContent = book.title;
-    // newBook.appendChild(newTitle);
+    const bookElements = ['title', 'author', 'status', 'delete'];
 
-    // const newAuthor = document.createElement('div');
-    // newAuthor.classList.add('author');
-    // newAuthor.textContent = book.author;
-    // newBook.appendChild(newAuthor);
-
-    // const newStatusBtn = document.createElement('button');
-    // newStatusBtn.classList.add('status');
-    // newStatusBtn.textContent = 'status';
-    // newBook.appendChild(newStatusBtn);
-
-    // const newDeleteBtn = document.createElement('button');
-    // newDeleteBtn.classList.add('delete');
-    // newDeleteBtn.textContent = 'Delete';
-    // newBook.appendChild(newDeleteBtn);
-
-
-
-    const test = bookDiv.childElementCount;
-    const test2 = ['title', 'author'];
-    const test3 = ['status', 'delete']
-
-    for (let i = 0; i < 2; i++) {
-        const newDiv = document.createElement('div');
-        newDiv.classList.add(`${test2[i]}`);
-        newDiv.textContent = book[test2[i]];
-        newBook.appendChild(newDiv);
+    // Add 'book' child elements to 'book' div
+    for (let i = 0; i < bookElements.length; i++) {
+        if (bookElements[i] === 'title' || bookElements[i] === 'author') {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = book[bookElements[i]];
+            newDiv.classList.add(`${bookElements[i]}`);
+            newBook.appendChild(newDiv);
+        } else {
+            const newBtn = document.createElement('button');
+            newBtn.textContent = bookElements[i];
+            newBtn.classList.add(`${bookElements[i]}`);
+            newBook.appendChild(newBtn);
+        }
     }
-
-    for (let i = 0; i < 2; i++) {
-        const newBtn = document.createElement('button');
-        newBtn.classList.add(`${test3[i]}`);
-        newBtn.textContent = test3[i];
-        newBook.appendChild(newBtn);
-    }
-
 
     addBookForm.reset();
-    
     console.log(myLibrary);
 }
 
