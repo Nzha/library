@@ -1,6 +1,6 @@
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-const status = document.querySelector('#status');
+const checkboxRead = document.querySelector('#checkbox-read');
 const addBookForm = document.querySelector('#add-book');
 const addBookBtn = document.querySelector('#add-book-btn');
 const bookContainer = document.querySelector('.book-container');
@@ -9,12 +9,8 @@ const bookDiv = document.querySelector('.book');
 let myLibrary = [];
 
 document.addEventListener('DOMContentLoaded', queryBtns);
+checkboxRead.addEventListener('change', colorReadText);
 addBookBtn.addEventListener('click', addBook);
-
-function updateStatusBtns() {
-    const statusBtns = document.querySelectorAll('.status');
-    statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus))
-}
 
 function Book(title, author) {
     this.title = title
@@ -45,7 +41,11 @@ function addBook(e) {
             newBook.appendChild(newDiv);
         } else {
             const newBtn = document.createElement('button');
-            newBtn.textContent = bookElements[i];
+            if (bookElements[i] === 'status') {
+                newBtn.textContent = 'Read';
+            } else {
+                newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
+            }
             newBtn.classList.add(`${bookElements[i]}`);
             newBook.appendChild(newBtn);
         }
@@ -76,3 +76,17 @@ function changeStatus(e) {
 function removeBook(e) {
     e.target.parentElement.remove();
 }
+
+function colorReadText() {
+    const readText = document.querySelector('#read');
+    
+    if (checkboxRead.checked) {
+        readText.style.color = '#f2f3f7';
+    } else {
+        readText.style.color = '#757575';
+    }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
