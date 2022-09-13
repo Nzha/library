@@ -5,14 +5,16 @@ const addBookForm = document.querySelector('#add-book');
 const addBookBtn = document.querySelector('#add-book-btn');
 const bookContainer = document.querySelector('.book-container');
 const bookDiv = document.querySelector('.book');
-const statusBtns = document.querySelectorAll('.status');
-const deleteBtns = document.querySelectorAll('.delete');
 
 let myLibrary = [];
 
+document.addEventListener('DOMContentLoaded', queryBtns);
 addBookBtn.addEventListener('click', addBook);
-statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus))
-deleteBtns.forEach(deleteBtn => deleteBtn.addEventListener('click', removeBook));
+
+function updateStatusBtns() {
+    const statusBtns = document.querySelectorAll('.status');
+    statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus))
+}
 
 function Book(title, author) {
     this.title = title
@@ -50,7 +52,16 @@ function addBook(e) {
     }
 
     addBookForm.reset();
+    queryBtns();
     console.log(myLibrary);
+}
+
+// Query buttons and attach an event listener to each
+function queryBtns() {
+    const statusBtns = document.querySelectorAll('.status');
+    const deleteBtns = document.querySelectorAll('.delete');
+    statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus))
+    deleteBtns.forEach(deleteBtn => deleteBtn.addEventListener('click', removeBook));
 }
 
 function changeStatus(e) {
