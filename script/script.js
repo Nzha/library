@@ -42,7 +42,12 @@ function addBook(e) {
         } else {
             const newBtn = document.createElement('button');
             if (bookElements[i] === 'status') {
-                newBtn.textContent = 'Read';
+                if (checkboxRead.checked) {
+                    newBtn.textContent = 'Read';
+                    newBtn.classList.add('read');
+                } else {
+                    newBtn.textContent = 'Not read';
+                }
             } else {
                 newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
             }
@@ -79,7 +84,7 @@ function removeBook(e) {
 
 function colorReadText() {
     const readText = document.querySelector('#read');
-    
+
     if (checkboxRead.checked) {
         readText.style.color = '#f2f3f7';
     } else {
