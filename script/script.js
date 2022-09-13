@@ -15,7 +15,7 @@ addBookBtn.addEventListener('click', addBook);
 function Book(title, author) {
     this.title = title
     this.author = author
-    // this.read = true
+    this.read = false
 }
 
 function addBook(e) {
@@ -32,7 +32,7 @@ function addBook(e) {
 
     const bookElements = ['title', 'author', 'status', 'delete'];
 
-    // Add 'book' child elements to 'book' div
+    // Add title, author, and buttons to 'book' div
     for (let i = 0; i < bookElements.length; i++) {
         if (bookElements[i] === 'title' || bookElements[i] === 'author') {
             const newDiv = document.createElement('div');
@@ -45,6 +45,7 @@ function addBook(e) {
                 if (checkboxRead.checked) {
                     newBtn.textContent = 'Read';
                     newBtn.classList.add('read');
+                    book.read = true;
                 } else {
                     newBtn.textContent = 'Not read';
                 }
@@ -58,6 +59,7 @@ function addBook(e) {
 
     addBookForm.reset();
     queryBtns();
+    console.log(book);
     console.log(myLibrary);
 }
 
