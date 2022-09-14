@@ -19,48 +19,49 @@ function Book(title, author) {
 }
 
 function addBook(e) {
-    e.preventDefault();
-    
     const book = new Book(title.value, author.value);
 
+    e.preventDefault();
     myLibrary.push(book);
-
-    // Create a 'book' div
-    const newBook = document.createElement('div');
-    newBook.classList.add('book');
-    bookContainer.appendChild(newBook);
-
-    const bookElements = ['title', 'author', 'status', 'delete'];
-
-    // Add title, author, and buttons to 'book' div
-    for (let i = 0; i < bookElements.length; i++) {
-        if (bookElements[i] === 'title' || bookElements[i] === 'author') {
-            const newDiv = document.createElement('div');
-            newDiv.textContent = book[bookElements[i]];
-            newDiv.classList.add(`${bookElements[i]}`);
-            newBook.appendChild(newDiv);
-        } else {
-            const newBtn = document.createElement('button');
-            if (bookElements[i] === 'status') {
-                if (checkboxRead.checked) {
-                    newBtn.textContent = 'Read';
-                    newBtn.classList.add('read');
-                    book.read = true;
-                } else {
-                    newBtn.textContent = 'Not read';
-                }
-            } else {
-                newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
-            }
-            newBtn.classList.add(`${bookElements[i]}`);
-            newBook.appendChild(newBtn);
-        }
-    }
-
-    addBookForm.reset();
+    
+    createBookCard(book);
     queryBtns();
-    console.log(book);
+    addBookForm.reset();
     console.log(myLibrary);
+}
+
+function createBookCard(book) {
+        // Create a 'book' div
+        const newBook = document.createElement('div');
+        newBook.classList.add('book');
+        bookContainer.appendChild(newBook);
+    
+        const bookElements = ['title', 'author', 'status', 'delete'];
+    
+        // Add title, author, and buttons to 'book' div
+        for (let i = 0; i < bookElements.length; i++) {
+            if (bookElements[i] === 'title' || bookElements[i] === 'author') {
+                const newDiv = document.createElement('div');
+                newDiv.textContent = book[bookElements[i]];
+                newDiv.classList.add(`${bookElements[i]}`);
+                newBook.appendChild(newDiv);
+            } else {
+                const newBtn = document.createElement('button');
+                if (bookElements[i] === 'status') {
+                    if (checkboxRead.checked) {
+                        newBtn.textContent = 'Read';
+                        newBtn.classList.add('read');
+                        book.read = true;
+                    } else {
+                        newBtn.textContent = 'Not read';
+                    }
+                } else {
+                    newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
+                }
+                newBtn.classList.add(`${bookElements[i]}`);
+                newBook.appendChild(newBtn);
+            }
+        }    
 }
 
 // Query buttons and attach an event listener to each
@@ -82,6 +83,7 @@ function changeStatus(e) {
 
 function removeBook(e) {
     e.target.parentElement.remove();
+    console.log(myLibrary);
 }
 
 function colorReadText() {
