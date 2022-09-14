@@ -7,12 +7,14 @@ const bookContainer = document.querySelector('.book-container');
 const bookDiv = document.querySelector('.book');
 
 let myLibrary = [];
+let bookId = 0;
 
 document.addEventListener('DOMContentLoaded', queryBtns);
 checkboxRead.addEventListener('change', colorReadText);
 addBookBtn.addEventListener('click', addBook);
 
 function Book(title, author) {
+    this.id = 0
     this.title = title
     this.author = author
     this.read = false
@@ -21,9 +23,11 @@ function Book(title, author) {
 function addBook(e) {
     const book = new Book(title.value, author.value);
 
+    book.id = bookId;
+    bookId++;
+
     e.preventDefault();
     myLibrary.push(book);
-    
     createBookCard(book);
     queryBtns();
     addBookForm.reset();
@@ -31,37 +35,37 @@ function addBook(e) {
 }
 
 function createBookCard(book) {
-        // Create a 'book' div
-        const newBook = document.createElement('div');
-        newBook.classList.add('book');
-        bookContainer.appendChild(newBook);
-    
-        const bookElements = ['title', 'author', 'status', 'delete'];
-    
-        // Add title, author, and buttons to 'book' div
-        for (let i = 0; i < bookElements.length; i++) {
-            if (bookElements[i] === 'title' || bookElements[i] === 'author') {
-                const newDiv = document.createElement('div');
-                newDiv.textContent = book[bookElements[i]];
-                newDiv.classList.add(`${bookElements[i]}`);
-                newBook.appendChild(newDiv);
-            } else {
-                const newBtn = document.createElement('button');
-                if (bookElements[i] === 'status') {
-                    if (checkboxRead.checked) {
-                        newBtn.textContent = 'Read';
-                        newBtn.classList.add('read');
-                        book.read = true;
-                    } else {
-                        newBtn.textContent = 'Not read';
-                    }
+    // Create a 'book' div
+    const newBook = document.createElement('div');
+    newBook.classList.add('book');
+    bookContainer.appendChild(newBook);
+
+    const bookElements = ['title', 'author', 'status', 'delete'];
+
+    // Add title, author, and buttons to 'book' div
+    for (let i = 0; i < bookElements.length; i++) {
+        if (bookElements[i] === 'title' || bookElements[i] === 'author') {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = book[bookElements[i]];
+            newDiv.classList.add(`${bookElements[i]}`);
+            newBook.appendChild(newDiv);
+        } else {
+            const newBtn = document.createElement('button');
+            if (bookElements[i] === 'status') {
+                if (checkboxRead.checked) {
+                    newBtn.textContent = 'Read';
+                    newBtn.classList.add('read');
+                    book.read = true;
                 } else {
-                    newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
+                    newBtn.textContent = 'Not read';
                 }
-                newBtn.classList.add(`${bookElements[i]}`);
-                newBook.appendChild(newBtn);
+            } else {
+                newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
             }
-        }    
+            newBtn.classList.add(`${bookElements[i]}`);
+            newBook.appendChild(newBtn);
+        }
+    }    
 }
 
 // Query buttons and attach an event listener to each
