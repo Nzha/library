@@ -23,11 +23,12 @@ function Book(title, author) {
 function addBook(e) {
     const book = new Book(title.value, author.value);
 
+    e.preventDefault();
+
     book.id = bookId;
     bookId++;
-
-    e.preventDefault();
     myLibrary.push(book);
+
     createBookCard(book);
     queryBtns();
     addBookForm.reset();
@@ -38,6 +39,7 @@ function createBookCard(book) {
     // Create a 'book' div
     const newBook = document.createElement('div');
     newBook.classList.add('book');
+    newBook.setAttribute('id', `${bookId - 1}`)
     bookContainer.appendChild(newBook);
 
     const bookElements = ['title', 'author', 'status', 'delete'];
@@ -86,6 +88,11 @@ function changeStatus(e) {
 }
 
 function removeBook(e) {
+    const indexOfObject = myLibrary.findIndex(object => {
+        return object.id == e.target.parentElement.id;
+    });
+    myLibrary.splice(indexOfObject, 1);
+
     e.target.parentElement.remove();
     console.log(myLibrary);
 }
