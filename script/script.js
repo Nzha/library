@@ -74,11 +74,11 @@ function createBookCard(book) {
 function queryBtns() {
     const statusBtns = document.querySelectorAll('.status');
     const deleteBtns = document.querySelectorAll('.delete');
-    statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeStatus))
+    statusBtns.forEach(statusBtn => statusBtn.addEventListener('click', changeReadStatus))
     deleteBtns.forEach(deleteBtn => deleteBtn.addEventListener('click', removeBook));
 }
 
-function changeStatus(e) {
+function changeReadStatus(e) {
     e.target.classList.toggle('read');
     if (e.target.classList.contains('read')) {
         e.target.textContent = 'Read';
