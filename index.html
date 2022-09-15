@@ -25,12 +25,12 @@
         </header>
         <div class="main-content">
             <div class="add-book">
-                <form action="#" id="add-book">
+                <form action="POST" id="add-book">
                     <div class="form-field">
-                        <input type="text" name="title" id="title" placeholder="Book">
+                        <input type="text" name="title" id="title" placeholder="Book" required>
                     </div>
                     <div class="form-field">
-                        <input type="text" name="author" id="author" placeholder="Author">
+                        <input type="text" name="author" id="author" placeholder="Author" required>
                     </div>
                     <div class="form-field">
                         <label for="status" id="read">Read</label>
@@ -39,24 +39,12 @@
                             <span class="slider round"></span>
                         </label>
                     </div>
-                    <button id="add-book-btn">Add</button>
+                    <button type="submit" id="add-book-btn" value="submit">Add</button>
                 </form>
             </div>
             <div class="book-container">
                 <!-- <div class="book">
                     <div class="title">The Lord of the Rings 1</div>
-                    <div class="author">Tolkien</div>
-                    <button type="button" class="status read">Read</button>
-                    <button type="button" class="delete">Delete</button>
-                </div>
-                <div class="book">
-                    <div class="title">The Lord of the Rings 2</div>
-                    <div class="author">Tolkien</div>
-                    <button type="button" class="status">Not read</button>
-                    <button type="button" class="delete">Delete</button>
-                </div>
-                <div class="book">
-                    <div class="title">The Lord of the Rings 3</div>
                     <div class="author">Tolkien</div>
                     <button type="button" class="status read">Read</button>
                     <button type="button" class="delete">Delete</button>
