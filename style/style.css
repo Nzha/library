@@ -47,6 +47,15 @@ h2 {
     font-weight: 700;
 }
 
+.account > p {
+    cursor: pointer;
+}
+
+.account > p::after {
+    content: '▼';
+    padding-left: 0.5rem;
+}
+
 .main-content {
     grid-area: main;
 }
