@@ -62,7 +62,7 @@ function createBookCard(book) {
                     newBtn.textContent = 'Not read';
                 }
             } else {
-                newBtn.textContent = capitalizeFirstLetter(bookElements[i]);
+                newBtn.textContent = 'Delete';
             }
             newBtn.classList.add(`${bookElements[i]}`);
             newBook.appendChild(newBtn);
@@ -106,7 +106,3 @@ function colorReadText() {
         readText.style.color = '#757575';
     }
 }
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
