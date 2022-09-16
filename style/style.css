@@ -231,6 +231,7 @@ button.delete {
 
 footer {
     grid-area: footer;
+    margin-top: 2rem;
 }
 
 footer a {
