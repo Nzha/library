@@ -39,11 +39,11 @@ function addBook(e) {
     // Prevent form validation message from popping after adding a book
     e.preventDefault();
 
-    console.log(myLibrary);
+    console.table(myLibrary);
 }
 
 function createBookCard(book) {
-    // Create a 'book' div
+    // Create a 'book' div with an ID matching the array's ID
     const newBook = document.createElement('div');
     newBook.classList.add('book');
     newBook.setAttribute('id', `${bookId - 1}`)
@@ -86,22 +86,31 @@ function queryBtns() {
 }
 
 function changeReadStatus(e) {
+    // Find index book object matching index book div
+    const indexOfObject = myLibrary.findIndex(object => {
+        return object.id == e.target.parentElement.id;
+    });
+
     e.target.classList.toggle('read');
     if (e.target.classList.contains('read')) {
         e.target.textContent = 'Read';
+        myLibrary[indexOfObject].read = true;
     } else {
         e.target.textContent = 'Not read';
+        myLibrary[indexOfObject].read = false;
     }
+    console.table(myLibrary);
 }
 
 function removeBook(e) {
+    // Find index book object matching index book div and remove from array
     const indexOfObject = myLibrary.findIndex(object => {
         return object.id == e.target.parentElement.id;
     });
     myLibrary.splice(indexOfObject, 1);
 
     e.target.parentElement.remove();
-    console.log(myLibrary);
+    console.table(myLibrary);
 }
 
 function colorReadText() {
