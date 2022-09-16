@@ -24,8 +24,9 @@ function Book(title, author) {
 function addBook(e) {
     const book = new Book(title.value, author.value);
 
-    e.preventDefault();
+    if (title.value == "" || author.value == "") return;
 
+    // Create book ID and add book object to myLibrary array
     book.id = bookId;
     bookId++;
     myLibrary.push(book);
@@ -34,6 +35,10 @@ function addBook(e) {
     createBookCard(book);
     queryBtns();
     addBookForm.reset();
+
+    // Prevent form validation message from popping after adding a book
+    e.preventDefault();
+
     console.log(myLibrary);
 }
 
