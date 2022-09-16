@@ -3,6 +3,7 @@ const author = document.querySelector('#author');
 const checkboxRead = document.querySelector('#checkbox-read');
 const addBookForm = document.querySelector('#add-book');
 const addBookBtn = document.querySelector('#add-book-btn');
+const emptyText = document.querySelector('.empty-text');
 const bookContainer = document.querySelector('.book-container');
 const bookDiv = document.querySelector('.book');
 
@@ -29,6 +30,7 @@ function addBook(e) {
     bookId++;
     myLibrary.push(book);
 
+    emptyText.remove();
     createBookCard(book);
     queryBtns();
     addBookForm.reset();

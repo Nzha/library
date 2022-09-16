@@ -178,7 +178,7 @@ form > button {
     padding: 0.5rem 2rem;
 }
 
-.empty {
+.empty-text {
     color: #757575;
     font-size: 1.5rem;
     display: flex;
