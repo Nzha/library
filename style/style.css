@@ -13,11 +13,13 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #f2f3f7;
     background-color: #16171d;
+    height: 100vh;
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
     "header"
-    "main";
+    "main"
+    "footer";
 }
 
 .container {
@@ -225,6 +227,20 @@ button.status.read {
 button.delete {
     color: #f2f3f7;
     background-color: #16171d;
+}
+
+footer {
+    grid-area: footer;
+}
+
+footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 0;
+    text-decoration: none;
+    color: #757575;
 }
 
 @media only screen and (min-width: 900px) {
