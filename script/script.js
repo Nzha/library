@@ -21,6 +21,10 @@ class Book {
         this.author = author
         this.read = false
     }
+
+    set setId(id) {
+        this.id = id;
+    }
 }
 
 function addBook(e) {
@@ -29,7 +33,7 @@ function addBook(e) {
     if (title.value == "" || author.value == "") return;
 
     // Create book ID and add book object to myLibrary array
-    book.id = bookId;
+    book.setId = bookId;
     bookId++;
     myLibrary.push(book);
 
