@@ -14,11 +14,13 @@ document.addEventListener('DOMContentLoaded', queryBtns);
 checkboxRead.addEventListener('change', colorReadText);
 addBookBtn.addEventListener('click', addBook);
 
-function Book(title, author) {
-    this.id = 0
-    this.title = title
-    this.author = author
-    this.read = false
+class Book {
+    constructor(title, author) {
+        this.id = 0
+        this.title = title
+        this.author = author
+        this.read = false
+    }
 }
 
 function addBook(e) {
